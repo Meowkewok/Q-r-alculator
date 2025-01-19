@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q(R)alculator</title>
+</head>
+<body>
+  <script>
+  let f;
+  const x = document.createElement('button');
+  const a = document.createElement('button');
+  const d = document.createElement('button');
+  const s = document.createElement('button');
+  var n1 = document.createElement("input");
+  var n2 = document.createElement('input');
+  var dis = document.createElement('output');
+  const h = document.createElement('div');
+  const lh = (o,r) => {
+    const l = document.createElement('p');
+    l.textContent = `${n1.value} ${o} ${n2.value} = ${r}`;
+    h.insertBefore(l, h.firstChild)
+  };
+  [x,a,d,s].forEach(button => {
+    button.addEventListener('click', () => {
+      lh(button.textContent, dis.textContent);
+    });
+  });
+  dis.style.border = '1px solid #000';
+  dis.style.padding = '10px';
+  n1.type = 'text';
+  n2.type = 'text';
+  x.textContent = 'x';
+  d.textContent = "/";
+  a.textContent = "+";
+  s.textContent = "-";
+  dis.style.display = 'block';
+  dis.style.marginTop = '20px'; 
+  document.body.appendChild(n1);
+  document.body.appendChild(a);
+  document.body.appendChild(s);
+  document.body.appendChild(x);
+  document.body.appendChild(d);
+  document.body.appendChild(n2);
+  document.body.appendChild(dis);
+  document.body.appendChild(h);
+  x.addEventListener('click', () => {
+    f = Number(n1.value) * Number(n2.value)
+    dis.textContent = f
+  });
+  a.addEventListener('click', () => {
+    f = Number(n1.value) + Number(n2.value)
+    dis.textContent = f
+  });
+  d.addEventListener('click', () => {
+    f = Number(n1.value) / Number(n2.value)
+    dis.textContent = f
+  });
+  s.addEventListener('click', () => {
+    f = Number(n1.value) - Number(n2.value)
+    dis.textContent = f
+  });
+  </script
+</body>
+</html>
